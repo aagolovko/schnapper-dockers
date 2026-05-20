@@ -1,0 +1,25 @@
+services:
+  kleinanzeigen-mongodb:
+    image: mongo:latest
+    container_name: kleinanzeigen-mongodb
+    command: mongod --ipv6 --bind_ip ::,0.0.0.0
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo_network
+  kleinanzeigen-mongodb-dev:
+    image: mongo:latest
+    container_name: kleinanzeigen-mongodb-dev
+    command: mongod --ipv6 --bind_ip ::,0.0.0.0
+    ports:
+      - "57017:27017"
+    networks:
+      - mongo_network
+
+networks:
+  mongo_network:
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: "fd00::/80"
