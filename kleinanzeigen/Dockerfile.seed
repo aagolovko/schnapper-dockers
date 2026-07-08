@@ -1,0 +1,9 @@
+FROM mongo:8.2.9
+
+WORKDIR /seed
+COPY seed/*.json /seed/
+COPY seed/import.sh /usr/local/bin/import-seed.sh
+
+RUN chmod +x /usr/local/bin/import-seed.sh
+
+ENTRYPOINT ["/usr/local/bin/import-seed.sh"]
