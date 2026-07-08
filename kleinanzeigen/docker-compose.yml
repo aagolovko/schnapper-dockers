@@ -1,6 +1,6 @@
 services:
   kleinanzeigen-mongodb:
-    image: mongo:latest
+    image: mongo:latest@sha256:3809fdcebf634552847a68bfed1927652cfb0e97ece23d94d7b57867de243464
     container_name: kleinanzeigen-mongodb
     command: mongod --ipv6 --bind_ip ::,0.0.0.0
     ports:
@@ -8,7 +8,7 @@ services:
     networks:
       - mongo_network
   kleinanzeigen-mongodb-dev:
-    image: mongo:latest
+    image: mongo:latest@sha256:3809fdcebf634552847a68bfed1927652cfb0e97ece23d94d7b57867de243464
     container_name: kleinanzeigen-mongodb-dev
     command: mongod --ipv6 --bind_ip ::,0.0.0.0
     ports:
